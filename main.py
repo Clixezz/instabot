@@ -1,7 +1,7 @@
 from telebot import TeleBot, types
 from langs import LANGS  # <--- bu orqali tillarni chaqiramiz
 
-bot = TeleBot("8307260139:AAFDb1BT85DAky4PJhNBstR8nNvXm6B6JRs", parse_mode="HTML")
+bot = TeleBot("8312007079:AAEYvcLkfiQoZhAzbuvSW8F_wukmESoBC_Y", parse_mode="HTML")
 
 # Foydalanuvchi tanlagan tillarni saqlash uchun
 user_langs = {}
@@ -48,5 +48,8 @@ def handle_link(message):
 
     new_link = link.replace("www.", "kk")
     bot.send_message(message.chat.id, new_link, disable_web_page_preview=False)
+
+# Delete any existing webhook before starting polling
+bot.delete_webhook()
 
 bot.infinity_polling()
